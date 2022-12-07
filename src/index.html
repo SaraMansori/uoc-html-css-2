@@ -13,10 +13,12 @@
         <title>Parcels</title>
     </head>
     <body>
-        <div>
-            <h1>Parcels</h1>
-            <h2>Artist spotlight</h2>
-            <p>
+        <include src="./views/navbar.html"></include>
+        <main class="home">
+            <h1 class="home_title">Parcels</h1>
+            <hr />
+            <h2 class="home_subtitle">Artist spotlight</h2>
+            <p class="home_about">
                 Parcels are an Australian electropop five-piece formed in Byron
                 Bay, Australia, in 2014. Today they are based in Berlin,
                 Germany. The band's line-up is composed of keyboardist Louie
@@ -24,23 +26,28 @@
                 Hill, drummer Anatole "Toto" Serret, and guitarist Jules
                 Crommelin.
             </p>
-            <a href="">Read more</a>
-            <figure>
-                <picture>
-                    <source
-                        srcset="./assets/images/Parcels_Brixton.jpeg?as=webp"
-                        type="image/webp"
-                    />
-                    <img
-                        src="./assets/images/Parcels_Brixton.jpeg"
-                        alt="Parcels playing in a concert"
-                    />
-                </picture>
-                <figcaption>O2 ACADEMY BRIXTON 30.09.2022</figcaption>
-            </figure>
-            <button>TOUR DATES</button>
-        </div>
-        <include src="./views/footer.html"></include>
+
+            <a class="home_link" href="./bio.html">Read more</a>
+            <picture class="home_img">
+                <source
+                    srcset="./assets/images/Parcels_Brixton.jpeg?as=webp"
+                    type="image/webp"
+                />
+                <img
+                    src="./assets/images/Parcels_Brixton.jpeg"
+                    alt="Parcels playing in a concert"
+                />
+            </picture>
+            <div class="home_location">
+                <p>
+                    30.09.2022
+                    <br />
+                    O2 ACADEMY BRIXTON
+                </p>
+            </div>
+            <a class="button" href="https://www.parcelsmusic.com/"> WEBPAGE </a>
+        </main>
+        <!-- <include src="./views/footer.html"></include> -->
         <script type="module" src="./assets/scripts/main.js"></script>
         <!-- do not remove this line! -->
     </body>

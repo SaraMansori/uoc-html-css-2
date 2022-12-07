@@ -1,29 +1,217 @@
-* {
+@use "sass:color";
+
+html {
   box-sizing: border-box;
+  height: 100%;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 2rem;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
   margin: 0;
-  font-family: $font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  color: white;
-  background-color: $bg-dark;
-}
-
-h1 {
-  margin-bottom: 0.25em;
-  font-family: $header-font;
-  font-size: calc(3em + 7vw);
-  color: $accent;
 }
 
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: $font-family-sans-serif;
+  font-size: 18px;
+  color: $primary;
+  background-color: $bg-dark;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+hr {
+  display: none;
+}
+
+.home {
+  position: relative;
+  display: block;
+  max-width: 45em;
+  padding: 1em;
+  margin: 0 auto;
+
+  &_title {
+    font-size: calc(3em + 7vw);
+    text-transform: none;
+  }
+
+  &_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &_location {
+    margin-top: 1em;
+    font-weight: bold;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  &_link {
+    display: block;
+    margin-bottom: 2em;
+    font-weight: bold;
+    color: $primary;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &_subtitle {
+    margin-bottom: 1em;
+    font-size: calc(1em + 0.5vw);
+    color: color.scale($primary, $lightness: 50%);
+    text-transform: uppercase;
+  }
+}
+
+h1 {
+  z-index: 2;
+  margin-bottom: 1em;
+  font-family: $header-font;
+  font-size: 3.5em;
+  font-weight: 700;
+  color: $accent;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.about {
+  line-height: 1.3;
+}
+
+.button {
+  position: absolute;
+  right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 2em;
+  font-size: 100%;
+  color: $primary;
+  text-transform: uppercase;
+  background-color: $secondary;
+  border: 0;
+}
+
+// Grid layout for big screens
+
+@supports (display: grid) {
+  @media (min-width: 42em) and (min-height: 40em) {
+    .home {
+      display: grid;
+      grid-template-rows: 35vh 40vh 15vh 10vh;
+      grid-template-columns:
+        calc(2em + 0.5vw)
+        fit-content(35em)
+        minmax(1em, 0.1fr)
+        minmax(14em, max-content)
+        minmax(10em, max-content)
+        2fr;
+      max-width: none;
+      padding: 0;
+
+      &_title {
+        z-index: 2;
+        grid-row: 1 / 2;
+        grid-column: 2 / 6;
+        align-self: center;
+        margin-bottom: initial;
+        text-align: center;
+      }
+
+      &_about {
+        grid-row: 2;
+        grid-column: 2 / 3;
+        align-self: center;
+        margin-bottom: initial;
+        text-align: end;
+      }
+
+      &_location {
+        z-index: 2;
+        display: flex;
+        grid-row: 3 / 4;
+        grid-column: 4 / 5;
+        margin-top: initial;
+        text-align: center;
+        background-color: $bg-dark;
+
+        p {
+          margin: auto;
+        }
+      }
+
+      &_link {
+        grid-row: 3 / 4;
+        grid-column: 2 / 3;
+        align-self: start;
+        justify-self: end;
+        margin-bottom: initial;
+
+        &::after {
+          display: block;
+          width: 4ch;
+          height: 4px;
+          margin-top: 1em;
+          content: "";
+          background-color: $accent;
+        }
+      }
+
+      &_img {
+        grid-row: 1 / 4;
+        grid-column: 4 / 8;
+      }
+
+      &_subtitle {
+        grid-row: 1 / -1;
+        grid-column: 1/2;
+        margin-top: 2em;
+        margin-bottom: initial;
+        writing-mode: vertical-rl;
+      }
+    }
+
+    hr {
+      grid-row: 2;
+      grid-column: 2 / 3;
+      justify-self: end;
+      width: 20ch;
+      height: 6px;
+      margin-top: 0;
+      background-color: $accent;
+      border-top: 0;
+      opacity: 1;
+    }
+
+    .button {
+      position: initial;
+      grid-row: 4 / 5;
+      grid-column: 5 / 6;
+      padding: 0;
+    }
+  }
 }

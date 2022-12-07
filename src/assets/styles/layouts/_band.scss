@@ -1,0 +1,10 @@
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  &-artist {
+    color: $tertiary;
+    background-color: $primary;
+  }
+}

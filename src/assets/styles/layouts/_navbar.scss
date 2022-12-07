@@ -1,0 +1,10 @@
+.navbar {
+    border-radius: 5px;
+    &-nav{
+        .nav-link{
+            &.active {
+                color: $accent
+            }
+        }
+    }
+}
