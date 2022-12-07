@@ -42,25 +42,10 @@
   &-highlighted {
     font-size: 1.5em;
   }
+}
 
-  &_flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
-
-    &_img {
-      flex: 1 1 0px;
-      filter: grayscale(100%);
-    }
-
-    &_item {
-      flex: 2 2 0;
-
-      &-highlighted {
-        flex: 1 1 0;
-      }
-    }
-  }
+.grayscale {
+  filter: grayscale(100%);
 }
 
 .listelement {
